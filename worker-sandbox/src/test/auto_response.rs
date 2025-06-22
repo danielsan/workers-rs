@@ -1,11 +1,10 @@
-use worker::*;
+use worker::{durable_object, Env, Request, Response, Result, State, WebSocketRequestResponsePair};
 
 #[durable_object]
 pub struct AutoResponseObject {
     state: State,
 }
 
-#[durable_object]
 impl DurableObject for AutoResponseObject {
     fn new(state: State, _env: Env) -> Self {
         Self { state }
